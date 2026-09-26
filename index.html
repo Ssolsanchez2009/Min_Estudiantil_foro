@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Algoritmo del Corazón — Ministerio Estudiantil</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="main-wrapper">
+    <!-- Banner Principal -->
+    <header class="hero-banner">
+      <h1>El Algoritmo del Corazón</h1>
+      <p>Un espacio para escuchar, acompañar y conectar | <strong>Juntos seremos Más</strong></p>
+    </header>
+
+    <!-- Pills Informativas -->
+    <div class="nav-pills">
+      <span class="pill">● Semáforo Emocional</span>
+      <span class="pill">● Promesa del Día</span>
+      <span class="pill">● Test Diagnóstico</span>
+      <span class="pill">● Buzón Anónimo</span>
+    </div>
+
+    <!-- Grid de Secciones -->
+    <div class="grid-container">
+      
+      <!-- SECCIÓN A: SEMÁFORO EMOCIONAL -->
+      <section class="card">
+        <h2><span>🚦</span> Semáforo Emocional</h2>
+        <p style="font-size: 0.88rem; color: var(--text-muted);">¿Cómo te sientes hoy? Selecciona tu estado para recibir un recurso rápido:</p>
+        
+        <div class="traffic-light">
+          <button class="semaphore-btn sem-green" onclick="setSemaphore('green')">Tranquilo / Bien</button>
+          <button class="semaphore-btn sem-yellow" onclick="setSemaphore('yellow')">Abrumado / Con dudas</button>
+          <button class="semaphore-btn sem-red" onclick="setSemaphore('red')">Saturado / Necesito hablar</button>
+        </div>
+
+        <div id="sem-result" class="sem-result"></div>
+      </section>
+
+      <!-- SECCIÓN B: PROMESA DEL DÍA -->
+      <section class="card">
+        <h2><span>✨</span> Promesa / Afirmación del Día</h2>
+        <p style="font-size: 0.88rem; color: var(--text-muted);">Haz clic para obtener un mensaje de ánimo pensado para tu día:</p>
+        
+        <div class="promise-box">
+          <p id="promise-text" class="promise-text">Haz clic en el botón de abajo para generar tu mensaje...</p>
+        </div>
+
+        <button class="orange-btn" onclick="generatePromise()">Generar Mensaje del Día</button>
+      </section>
+
+      <!-- SECCIÓN C: QUIZ DIAGNÓSTICO -->
+      <section class="card">
+        <h2><span>🔍</span> Quiz: Diagnóstico Emocional</h2>
+        <div id="quiz-box">
+          <p id="question-text" style="font-weight: 500;">Cargando preguntas...</p>
+          <div id="options-container"></div>
+        </div>
+
+        <div class="result-card" id="result-box">
+          <h3 style="margin-top:0; color: var(--navy-blue);">Resultado de Diagnóstico:</h3>
+          <p id="result-text"></p>
+          <small style="color: var(--text-muted);">*Procesado de forma 100% confidencial.</small>
+        </div>
+      </section>
+
+      <!-- SECCIÓN D: BUZÓN ANÓNIMO -->
+      <section class="card">
+        <h2><span>📩</span> Muro de Bugs Anónimos</h2>
+        <p style="font-size: 0.88rem; color: var(--text-muted);">Escribe lo que callas. Nos ayudará a preparar los temas de las próximas charlas.</p>
+        
+        <form id="bug-form">
+          <label for="bug-category" style="font-size: 0.85rem; font-weight: 600;">Categoría:</label>
+          <select id="bug-category" required>
+            <option value="">Selecciona un tema...</option>
+            <option value="Ansiedad/Estrés">Estrés académico / Futuro</option>
+            <option value="Tristeza/Vacío">Tristeza / Soledad</option>
+            <option value="Relaciones/Familia">Relaciones / Familia</option>
+            <option value="Identidad/Autoestima">Identidad / Autoestima</option>
+            <option value="Fe/Dudas">Dudas de Fe / Propósito</option>
+          </select>
+
+          <label for="bug-text" style="font-size: 0.85rem; font-weight: 600;">Tu mensaje:</label>
+          <textarea id="bug-text" rows="3" placeholder="Escribe aquí con total libertad..." required></textarea>
+
+          <button type="submit" class="orange-btn">Enviar Mensaje Anónimo</button>
+        </form>
+        <div class="status-toast" id="form-status">✓ Mensaje recibido. ¡Gracias por confiar!</div>
+      </section>
+
+      <!-- SECCIÓN E: MINISTERIO ESTUDIANTIL -->
+      <section class="card full-width">
+        <h2><span>🤝</span> Ministerio Estudiantil & Red de Apoyo</h2>
+        <p><strong>¿Quiénes somos?</strong> Un espacio seguro diseñado para acompañarte en tus desafíos escolares, construir amistades sanas y hablar con honestidad. <em>Juntos seremos Más.</em></p>
+        
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 15px;">
+          <div style="flex: 1; min-width: 220px;">
+            <p style="margin:0;"><strong>Lo que ofrecemos:</strong></p>
+            <ul style="padding-left: 20px; font-size: 0.9rem; color: var(--text-muted);">
+              <li>Conversatorios sobre salud mental y valores.</li>
+              <li>Grupos de conexión entre estudiantes.</li>
+              <li>Consejería y acompañamiento confidencial.</li>
+            </ul>
+          </div>
+          <div style="flex: 1; min-width: 220px;">
+            <a href="https://wa.me/593000000000?text=Hola,%20quisiera%20hablar%20con%20un%20l%C3%ADder%20del%20Ministerio%20Estudiantil" target="_blank" class="whatsapp-link">
+              Hablar con un líder en privado
+            </a>
+            <p style="text-align: center; font-size: 0.8rem; color: var(--text-muted); margin-top: 6px;">Atención 100% privada y segura</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

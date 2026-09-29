@@ -1,78 +1,65 @@
 :root {
-  --bg-gradient: linear-gradient(135deg, #eef2f7 0%, #e0e8f5 50%, #d5e0f2 100%);
-  --card-bg: rgba(255, 255, 255, 0.92);
-  --navy-blue: #004C8C;
-  --dark-blue: #003366;
-  --vivid-orange: #FF6B35;
-  --soft-orange: #fff1ec;
-  --text-main: #1e293b;
-  --text-muted: #64748b;
+  /* Usamos un fondo que simule el papel de tu banner */
+  --bg-page: #e8ecef; 
+  --navy-blue: #003366; /* El azul de tu logo */
+  --vivid-orange: #FF6B35; /* El naranja de tu logo */
   --white: #ffffff;
-  --radius-lg: 20px;
-  --radius-sm: 12px;
-  --shadow-soft: 0 10px 25px -5px rgba(0, 76, 140, 0.12);
+  --radius-xl: 35px; /* Bordes súper redondeados como la ref */
+  --radius-md: 20px;
 }
 
 body {
-  background: var(--bg-gradient);
-  color: var(--text-main);
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-page);
+  /* Textura sutil parecida al papel de tu banner */
+  background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+  background-size: 20px 20px;
+  color: #1e293b;
+  font-family: 'Segoe UI', system-ui, sans-serif;
   margin: 0;
-  padding: 30px 15px;
-  min-height: 100vh;
+  padding: 20px 15px;
 }
 
 .main-wrapper {
-  max-width: 980px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
-/* Banner Principal */
-.hero-banner {
-  background: linear-gradient(120deg, var(--navy-blue) 0%, var(--dark-blue) 100%);
-  color: var(--white);
-  padding: 35px 30px;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
-  text-align: center;
-  margin-bottom: 25px;
-  border-bottom: 4px solid var(--vivid-orange);
+/* ================================
+   EL BANNER COMO INICIO
+   ================================ */
+.hero-image {
+  width: 100%;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  object-fit: cover;
 }
 
-.hero-banner h1 {
-  margin: 0 0 8px 0;
-  font-size: 2.1rem;
-  letter-spacing: -0.5px;
-}
-
-.hero-banner p {
-  margin: 0;
-  opacity: 0.9;
-  font-size: 1rem;
-  color: #e2e8f0;
-}
-
-/* Nav Pills */
+/* ================================
+   BOTONES DEL MENÚ (PILLS)
+   ================================ */
 .nav-pills {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  margin-bottom: 25px;
-  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
 }
 
 .pill {
-  background: var(--white);
-  color: var(--navy-blue);
-  padding: 8px 20px;
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 0.88rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(0, 76, 140, 0.1);
+  background: var(--navy-blue);
+  color: var(--white);
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 10px rgba(0, 51, 102, 0.3);
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-/* Grid Layout */
+/* ================================
+   TARJETAS ESTILO "UI REFERENCE"
+   ================================ */
 .grid-container {
   display: grid;
   grid-template-columns: 1fr;
@@ -88,173 +75,281 @@ body {
   }
 }
 
-.card {
-  background: var(--card-bg);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--white);
-  border-radius: var(--radius-lg);
-  padding: 25px;
-  box-shadow: var(--shadow-soft);
+/* La caja oscura del fondo */
+.ui-card {
+  background: var(--navy-blue);
+  border-radius: var(--radius-xl);
+  padding: 25px 20px 20px 20px;
+  position: relative;
+  box-shadow: 0 15px 25px rgba(0, 51, 102, 0.15);
 }
 
-.card h2 {
-  color: var(--navy-blue);
-  font-size: 1.2rem;
-  margin-top: 0;
+.ui-card-header {
+  color: var(--white);
   margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  padding-left: 10px;
 }
 
-/* Botones e Inputs */
-.orange-btn {
+.ui-card-header h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+}
+
+/* La caja clara superpuesta (el efecto scrapbook) */
+.ui-card-inner {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.highlight-inner {
+  background: #fff8f5; /* Un tono naranjita súper claro */
+  border: 2px dashed var(--vivid-orange);
+}
+
+/* ================================
+   ELEMENTOS INTERNOS
+   ================================ */
+.action-btn {
   background: var(--vivid-orange);
   color: var(--white);
   border: none;
-  padding: 12px 20px;
-  border-radius: var(--radius-sm);
-  font-weight: 600;
-  cursor: pointer;
-  width: 100%;
-  transition: all 0.2s ease;
-  font-size: 0.95rem;
-}
-
-.orange-btn:hover {
-  background: #e05522;
-  transform: translateY(-1px);
-}
-
-.option-pill {
-  background: var(--white);
-  color: var(--text-main);
-  border: 1.5px solid #cbd5e1;
-  padding: 12px 15px;
-  border-radius: var(--radius-sm);
-  text-align: left;
-  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: var(--radius-md);
+  font-weight: bold;
   width: 100%;
   cursor: pointer;
-  font-size: 0.92rem;
-  transition: all 0.2s;
+  margin-top: 15px;
+  transition: transform 0.2s;
 }
 
-.option-pill:hover {
-  background: var(--soft-orange);
-  border-color: var(--vivid-orange);
-  color: var(--dark-blue);
+.action-btn:hover {
+  transform: translateY(-2px);
+  background: #e65c2b;
 }
 
-textarea, select {
+.ui-input {
   width: 100%;
-  background: var(--white);
-  border: 1.5px solid #cbd5e1;
-  border-radius: var(--radius-sm);
-  padding: 12px;
-  color: var(--text-main);
+  background: #f1f5f9;
+  border: none;
+  border-radius: 12px;
+  padding: 15px;
   box-sizing: border-box;
   margin-bottom: 15px;
   font-family: inherit;
+  color: var(--navy-blue);
 }
 
-textarea:focus, select:focus {
-  outline: none;
+.ui-input:focus {
+  outline: 2px solid var(--vivid-orange);
+}
+
+/* Opciones del Quiz */
+.option-pill {
+  display: block;
+  width: 100%;
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: left;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--navy-blue);
+}
+
+.option-pill:hover {
+  background: var(--navy-blue);
+  color: var(--white);
   border-color: var(--navy-blue);
 }
 
-/* Semáforo Emocional */
-.traffic-light {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-
+/* Semáforo */
+.traffic-light { display: flex; gap: 10px; }
 .semaphore-btn {
-  flex: 1;
-  padding: 12px 8px;
-  border: none;
-  border-radius: var(--radius-sm);
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 0.85rem;
-  transition: transform 0.2s, opacity 0.2s;
-  color: var(--white);
+  flex: 1; padding: 15px 5px; border: none; border-radius: 12px;
+  color: white; font-weight: bold; cursor: pointer;
 }
-
-.semaphore-btn:hover {
-  transform: scale(1.03);
-  opacity: 0.9;
-}
-
 .sem-green { background-color: #10b981; }
 .sem-yellow { background-color: #f59e0b; }
 .sem-red { background-color: #ef4444; }
 
 .sem-result {
-  display: none;
-  padding: 15px;
-  border-radius: var(--radius-sm);
-  background: #f8fafc;
-  border-left: 4px solid var(--navy-blue);
-  font-size: 0.9rem;
-  margin-top: 10px;
+  display: none; padding: 15px; background: #f8fafc; border-radius: 12px;
+  margin-top: 15px; border-left: 4px solid var(--vivid-orange); font-size: 0.9rem;
 }
 
-/* Tarjeta Promesa del Día */
-.promise-box {
-  background: linear-gradient(135deg, #f8fafc 0%, var(--soft-orange) 100%);
-  border: 1.5px dashed var(--vivid-orange);
-  padding: 20px;
-  border-radius: var(--radius-sm);
-  text-align: center;
-  margin-bottom: 15px;
-  min-height: 70px;
+/* Promesa */
+.promise-box { text-align: center; min-height: 60px; display: flex; align-items: center; justify-content: center; }
+.promise-text { font-style: italic; color: var(--navy-blue); font-weight: 600; margin: 0; }
+
+.result-card, .status-toast {
+  display: none; padding: 15px; border-radius: 12px; margin-top: 15px;
+}
+.result-card { background: #eff6ff; border: 2px solid var(--navy-blue); }
+.status-toast { background: #d1fae5; color: #047857; text-align: center; font-weight: bold; }
+
+/* ================================
+   ANIMACIONES Y DINAMISMO (CSS)
+   ================================ */
+
+/* 1. Animación de flotación suave para el Banner */
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 35px rgba(0, 0, 0, 0.15);
+  }
+  100% {
+    transform: translateY(0px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.hero-image {
+  animation: floatAnimation 4s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+/* 2. Entrada progresiva de las tarjetas al cargar la página */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ui-card {
+  animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Retraso escalonado para que las tarjetas aparezcan una tras otra */
+.grid-container .ui-card:nth-child(1) { animation-delay: 0.1s; }
+.grid-container .ui-card:nth-child(2) { animation-delay: 0.2s; }
+.grid-container .ui-card:nth-child(3) { animation-delay: 0.3s; }
+.grid-container .ui-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* 3. Efecto Elevación 3D al pasar el cursor sobre la tarjeta */
+.ui-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px rgba(0, 51, 102, 0.22);
+}
+
+/* 4. Efectos interactivos en Nav Pills y Botones */
+.pill {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.pill:hover {
+  background: var(--vivid-orange);
+  transform: scale(1.08);
+  box-shadow: 0 6px 15px rgba(255, 107, 53, 0.4);
+}
+
+.action-btn {
+  transition: all 0.25s ease;
+}
+
+.action-btn:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 8px 20px rgba(255, 107, 53, 0.35);
+}
+
+.action-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* 5. Transición suave en las opciones del Quiz y Semáforo */
+.option-pill {
+  transition: all 0.25s ease;
+}
+
+.option-pill:hover {
+  transform: translateX(6px);
+}
+
+.semaphore-btn {
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.semaphore-btn:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.semaphore-btn:active {
+  transform: scale(0.96);
+}
+/* ================================
+   ESTILOS PARA MODALES Y FORO
+   ================================ */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 51, 102, 0.6);
+  backdrop-filter: blur(5px);
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
-.promise-text {
-  font-style: italic;
-  color: var(--dark-blue);
-  font-weight: 500;
-  margin: 0;
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
-.result-card {
-  display: none;
-  background: var(--soft-orange);
-  border: 1.5px solid var(--vivid-orange);
-  padding: 15px;
-  border-radius: var(--radius-sm);
-  margin-top: 15px;
-}
-
-.whatsapp-link {
-  display: block;
-  text-align: center;
+.modal-card {
   background: var(--navy-blue);
   color: var(--white);
-  text-decoration: none;
-  padding: 12px;
-  border-radius: var(--radius-sm);
-  font-weight: 600;
+  padding: 30px 25px 25px 25px;
+  border-radius: var(--radius-xl);
+  max-width: 450px;
+  width: 90%;
+  position: relative;
+  transform: translateY(20px) scale(0.95);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.modal-overlay.active .modal-card {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: var(--white);
+  font-size: 1.8rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.modal-body-box {
+  background: var(--white);
+  color: #1e293b;
+  border-radius: var(--radius-md);
+  padding: 20px;
   margin-top: 15px;
-  transition: background 0.2s;
-}
-
-.whatsapp-link:hover {
-  background: var(--dark-blue);
-}
-
-.status-toast {
-  display: none;
-  color: #047857;
-  background: #d1fae5;
-  padding: 10px;
-  border-radius: var(--radius-sm);
-  text-align: center;
-  font-size: 0.85rem;
-  margin-top: 10px;
 }

@@ -148,10 +148,9 @@ bugForm.addEventListener('submit', (e) => {
 // ==========================================
 // 5. CONEXIÓN CON GOOGLE SHEETS
 // ==========================================
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw0SGEI52q8Yx2RLSZdZfABGEWI_F1ybLxZGQb2Tfe9zL4aiaAcK9LDHMYC-WeUmUFa/exec';
-
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwtI5DD7mATexJ-NGEnws3aVBIGesJY6r0iFPxVrkPpRuYmFESJWcSEmk-5iWKb5Cyj/exec';
 function sendDataToSheet(data) {
-  if (GOOGLE_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbw0SGEI52q8Yx2RLSZdZfABGEWI_F1ybLxZGQb2Tfe9zL4aiaAcK9LDHMYC-WeUmUFa/exec') return;
+  if (GOOGLE_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbx1SNZGMeqyOUrSmW4zsX0gQUqYejG5n43dCsjmvq5XGX5ym_6p4sUoOcyymfA4jQXV/exec') return;
 
   fetch(GOOGLE_SCRIPT_URL, {
     method: 'POST',
@@ -159,4 +158,67 @@ function sendDataToSheet(data) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
   }).catch(err => console.error("Error al enviar:", err));
+}
+// ================================
+// LÓGICA DE MODALES Y CHALLENGES
+// ================================
+
+function openModal(id) {
+  const modal = document.getElementById(id);
+  if (modal) modal.classList.add('active');
+}
+
+function closeModal(id) {
+  const modal = document.getElementById(id);
+  if (modal) modal.classList.remove('active');
+}
+
+function closeModalOnOverlay(e, id) {
+  if (e.target.classList.contains('modal-overlay')) {
+    closeModal(id);
+  }
+}
+
+// Lista de datos curiosos para el botón "Sabías Que..."
+const sabiasQueFacts = [
+  "Aroma y memoria: Si usas un perfume o aroma específico (como menta o lavanda) mientras estudias y lo vuelves a oler en el examen, recordarás los datos más rápido.",
+  " Tomar notas a mano activa zonas del cerebro de comprensión profunda, mientras que teclear en computadora suele ser una copia mecánica.",
+  "Efecto Zeigarnik: La mente odia tareas inconclusas. Si te obligas a trabajar solo 2 minutos en algo difícil, tu cerebro querrá continuarlo hasta terminar.",
+  " Mientras duermes, tu cerebro se 'lava' con líquido cefalorraquídeo para fijar lo aprendido durante el día en la memoria a largo plazo.",
+  " Decirte 'estoy emocionado' en lugar de 'estoy nervioso' engaña a tu cerebro para transformar la ansiedad en energía positiva antes de exponer.",
+  " Escuchar música con letra mientras lees interfiere con el área de lenguaje de tu cerebro, dificultando la concentración.",
+  "Estar levemente deshidratado (solo un 2%) reduce drásticamente tu velocidad de procesamiento mental y atención.",
+  "Mirar imágenes de naturaleza o plantas durante 5 minutos reduce los niveles de cortisol (estrés) hasta en un 20%."
+];
+
+function randomizeFact() {
+  const factEl = document.getElementById('fact-prompt');
+  const randomIndex = Math.floor(Math.random() * sabiasQueFacts.length);
+  if (factEl) {
+    factEl.textContent = sabiasQueFacts[randomIndex];
+  }
+}
+
+// Envío del Foro a tu Google Sheet
+function submitForum(e) {
+  e.preventDefault();
+  const name = document.getElementById('forum-name').value || 'Anónimo';
+  const message = document.getElementById('forum-msg').value;
+
+  // Usa la misma función de envío a Google Sheets que probamos antes
+  sendDataToSheet({
+    type: 'BUG_ANONIMO',
+    category: `FORO (${name})`,
+    message: message
+  });
+
+  document.getElementById('forum-form').reset();
+  const status = document.getElementById('forum-status');
+  if (status) {
+    status.style.display = 'block';
+    setTimeout(() => {
+      status.style.display = 'none';
+      closeModal('modal-eventos');
+    }, 2500);
+  }
 }

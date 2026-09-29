@@ -21,11 +21,11 @@ function setSemaphore(color) {
 // 2. PROMESA / AFIRMACIÓN DEL DÍA
 // ==========================================
 const promises = [
-  "\"No te impacientes por el mañana; cada día trae sus propios retos y sus propias fortalezas.\"",
-  "\"Tu valor no está determinado por tus notas ni por la aprobación de los demás.\"",
-  "\"Pedir ayuda no es síntoma de debilidad, sino el primer paso para fortalecerte.\"",
-  "\"Aun en medio del caos, siempre hay espacio para empezar de nuevo con tranquilidad.\"",
-  "\"Nunca estás solo/a. Hay un equipo y una comunidad dispuesta a caminar contigo.\""
+  "\"No se inquieten por nada; más bien, en toda ocasión, con oración y ruego, presenten sus peticiones a Dios y denle gracias. Y la paz de Dios, que sobrepasa todo entendimiento, cuidará sus corazones y sus pensamientos en Cristo Jesús.\"",
+  "\"Vengan a mí todos ustedes que están cansados y agobiados, y yo les daré descanso.\"",
+  "\"Así que no temas, porque yo estoy contigo; no te angusties, porque yo soy tu Dios. Te fortaleceré y te ayudaré; te sostendré con mi diestra victoriosa.\"",
+  "\"Depositen en él toda su ansiedad, porque él cuida de ustedes.\"",
+  "\"Cuando en mí se multiplicaron las preocupaciones, tus consolaciones llenaron de alegría mi alma.\""
 ];
 
 function generatePromise() {
@@ -181,14 +181,10 @@ function closeModalOnOverlay(e, id) {
 
 // Lista de datos curiosos para el botón "Sabías Que..."
 const sabiasQueFacts = [
-  "Aroma y memoria: Si usas un perfume o aroma específico (como menta o lavanda) mientras estudias y lo vuelves a oler en el examen, recordarás los datos más rápido.",
-  " Tomar notas a mano activa zonas del cerebro de comprensión profunda, mientras que teclear en computadora suele ser una copia mecánica.",
-  "Efecto Zeigarnik: La mente odia tareas inconclusas. Si te obligas a trabajar solo 2 minutos en algo difícil, tu cerebro querrá continuarlo hasta terminar.",
-  " Mientras duermes, tu cerebro se 'lava' con líquido cefalorraquídeo para fijar lo aprendido durante el día en la memoria a largo plazo.",
-  " Decirte 'estoy emocionado' en lugar de 'estoy nervioso' engaña a tu cerebro para transformar la ansiedad en energía positiva antes de exponer.",
-  " Escuchar música con letra mientras lees interfiere con el área de lenguaje de tu cerebro, dificultando la concentración.",
-  "Estar levemente deshidratado (solo un 2%) reduce drásticamente tu velocidad de procesamiento mental y atención.",
-  "Mirar imágenes de naturaleza o plantas durante 5 minutos reduce los niveles de cortisol (estrés) hasta en un 20%."
+  " Elías y el Burnout: Elías sufrió tal agotamiento emocional que quiso rendirse. Dios respondió dándole comida, agua y descanso.",
+  "️ Jesús y el Estrés: En Getsemaní, Jesús sintió una angustia tan intensa que sudó gotas de sangre (condición médica por estrés extremo).",
+  " Moisés y la Sobrecarga: Moisés casi colapsa por intentar resolver todo solo. Aprendió que delegar es clave para no colapsar.",
+  " David y la Ansiedad: David expresó abiertamente sus ataques de pánico en los Salmos, demostrando que hablar de lo que sientes ayuda a sanar.",
 ];
 
 function randomizeFact() {
